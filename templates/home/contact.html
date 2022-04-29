@@ -1,0 +1,55 @@
+{% extends "root.html" %}
+{% load static %}
+{% block content_body %}
+<div id="colorlib-main">
+	<section class="ftco-section contact-section">
+		<div class="container">
+			<div class="row d-flex mb-5 contact-info">
+				<div class="col-md-12 mb-4">
+					<h2 class="h4 font-weight-bold">Contact Information</h2>
+				</div>
+				<div class="w-100"></div>
+				<div class="col-md-4">
+					<p><span>Address: </span>{{ contact_obj.address }}</p>
+				</div>
+				<div class="col-md-4">
+					<p><span>Phone: </span> <a href="tel://+91{{ contact_obj.phone }}">+91 {{ contact_obj.phone }}</a></p>
+				</div>
+				<div class="col-md-4">
+					<p><span>Email: </span> <a href="mailto:{{ contact_obj.email }}">{{ contact_obj.email }}</a></p>
+				</div>
+			</div>
+			<div class="row block-9">
+				<div class="col-md-6 order-md-last pr-md-5">
+					<form action="" method="POST">
+						{% csrf_token %}
+						<div class="form-group">
+							<input type="text" class="form-control" name="name" placeholder="Your Name" required>
+						</div>
+						<div class="form-group">
+							<input type="email" class="form-control" name="email" placeholder="Your Email" required>
+						</div>
+						<div class="form-group">
+							<input type="text" class="form-control" name="subject" placeholder="Subject" required>
+						</div>
+						<div class="form-group">
+							<textarea name="message" id="" cols="30" rows="7" class="form-control"
+								placeholder="Message" required></textarea>
+						</div>
+						<div class="form-group">
+							<input type="submit" value="Send Message" class="btn btn-primary py-3 px-5">
+						</div>
+					</form>
+
+				</div>
+
+				<div class="col-md-6">
+					<!-- <div id="map"></div> -->
+					<div class="hero-wrap hero-wrap-2" style="background-image: url({% static 'images/contact.jpg' %});"
+						data-stellar-background-ratio="0.5">
+				</div>
+			</div>
+		</div>
+	</section>
+</div><!-- END COLORLIB-MAIN -->
+{% endblock content_body %}

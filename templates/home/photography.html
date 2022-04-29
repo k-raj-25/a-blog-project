@@ -1,0 +1,24 @@
+{% extends "root.html" %}
+{% load static %}
+{% block content_body %}
+<div id="colorlib-main">
+	<section class="ftco-section-2">
+		<div class="photograhy">
+			<div class="row no-gutters">
+				{% for img in images %}
+				<div class="col-md-3">
+					<a href="#" class="photography-entry img d-flex justify-content-center align-items-center"
+						style="background-image: url({{ img.image.url }});">
+						<div class="overlay"></div>
+						<div class="text text-center">
+							<h3>{{ img.title }}</h3>
+							<span>{{ img.tags }}</span>
+						</div>
+					</a>
+				</div>
+				{% endfor %}
+			</div>
+		</div>
+	</section>
+</div><!-- END COLORLIB-MAIN -->
+{% endblock content_body %}
